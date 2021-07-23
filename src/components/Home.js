@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
+import './css/Home.css';
 
 class Home extends Component {
     render() {
@@ -10,7 +11,7 @@ class Home extends Component {
                 <ul>
                 { tweets.map(tweet => (
                     <li key={tweet.id}>
-                        <div>
+                        <div className="container">
                             <span>{tweet.owner}</span>
                             <p>{tweet.tweet}</p>
                             <p>Like: {tweet.likes} Retweet: {tweet.retweets}</p>

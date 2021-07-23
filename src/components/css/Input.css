@@ -1,0 +1,26 @@
+textarea {
+    width: 25rem;
+    height: 10rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.tweet-btn {
+    background: none;
+    outline: none;
+    border: none;
+    background-color: #1DA1F2;
+    color: white;
+    width: 5.5rem;
+    height: 2rem;
+    border-radius: 15px;
+}
+
+.tweet-btn:hover {
+    cursor: pointer;
+}

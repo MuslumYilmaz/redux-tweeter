@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './css/Input.css';
 
 class Input extends Component {
     state = {
@@ -20,8 +21,8 @@ class Input extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-              <textarea type="text" placeholder="What's happenning?" value={this.state.value} onChange={this.handleChange} />
-            <input type="submit" value="Submit" />
+            <textarea type="text" placeholder="What's happenning?" value={this.state.value} onChange={this.handleChange} />
+            <input className="tweet-btn" type="submit" value="Tweet" />
           </form>
         )
     }

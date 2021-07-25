@@ -49,7 +49,7 @@ class TweetDetail extends Component {
                         <div className="container">
                             <span>{tweet.owner}</span>
                             <p>{comment.content}</p>
-                            <p><FcLike onClick={() => this.like(comment.id)} /> {comment.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets}</p>
+                            <p><FcLike onClick={() => this.like(comment.id)} /> {comment.likes} <FaRetweet onClick={() => this.retweet(comment.id)} /> {comment.retweets}</p>
                         </div>
                     </li>
                 ))}

@@ -1,14 +1,34 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
+import { FcLike } from 'react-icons/fc';
+import { FaRetweet } from 'react-icons/fa';
 
 class TweetDetail extends Component {
     render() {
+        let { tweet } = this.props;
+        console.log(this.props);
+
         return (
             <div>
-            <h1>YO!</h1>
-            <h3>test</h3>
+                <ul>
+                    <li key={tweet.id}>
+                        <div className="container">
+                            <span>{tweet.owner}</span>
+                            <p>{tweet.tweet}</p>
+                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets}</p>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
         )
     }
 }
 
-export default TweetDetail;
+const mapStateToProps = (state) => {
+    return {
+        tweet: state.tweet
+    }
+}
+
+export default connect(mapStateToProps)(TweetDetail);

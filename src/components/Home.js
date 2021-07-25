@@ -14,6 +14,10 @@ class Home extends Component {
         this.props.rtTweet(id);
     }
 
+    getTweetDetail = (id) => {
+        this.props.getTweet(id);
+    }
+
     render() {
     let { tweets } = this.props;
     console.log(this.props);
@@ -25,7 +29,7 @@ class Home extends Component {
                         <div className="container">
                             <span>{tweet.owner}</span>
                             <p>{tweet.tweet}</p>
-                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets} <Link to="tweet-detail">Mention</Link></p>
+                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets} <Link to="tweet-detail" onClick={() => this.getTweetDetail(tweet.id)}>Mention</Link></p>
                         </div>
                     </li>
                 )) }
@@ -45,7 +49,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         likeTweet: (id) => { dispatch({type: 'LIKE_TWEET', id}) },
-        rtTweet: (id) => { dispatch({type: 'RT_TWEET', id}) }
+        rtTweet: (id) => { dispatch({type: 'RT_TWEET', id}) },
+        getTweet: (id) => { dispatch({type: 'GET_TWEET', id}) }
     }
 }
 

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
 import './css/Home.css';
+import { Link } from 'react-router-dom';
 import { FcLike } from 'react-icons/fc';
 import { FaRetweet } from 'react-icons/fa';
 
@@ -24,7 +25,7 @@ class Home extends Component {
                         <div className="container">
                             <span>{tweet.owner}</span>
                             <p>{tweet.tweet}</p>
-                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets}</p>
+                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets} <Link to="tweet-detail">Mention</Link></p>
                         </div>
                     </li>
                 )) }

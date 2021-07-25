@@ -15,7 +15,13 @@ function App() {
       <Home />
     </div>
     )} />
-    <Route path="/create" component={TweetDetail}/>
+    <Route path="/tweet-detail" render={() => (
+      <div>
+      <Header />
+      <TweetDetail />
+      </div>
+
+    )} />
     </div>
 
   );

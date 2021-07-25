@@ -7,7 +7,19 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-    return state;
+    switch (action.type) {
+        case 'ADD_TWEET':
+            let newList = [...state.tweets];
+            newList.unshift(action.tweet);
+
+            return {
+                ...state,
+                tweets: newList
+            }
+            
+        default:
+            return state;    
+    }
 }
 
 export default rootReducer;

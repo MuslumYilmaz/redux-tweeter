@@ -1,5 +1,6 @@
 import { Component } from "react";
 import './css/Input.css';
+import { connect } from 'react-redux';
 
 class Input extends Component {
     state = {
@@ -14,8 +15,12 @@ class Input extends Component {
     }
     
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
+
+        let id = Math.floor(Math.random() * 10000);
+        let tweet = {owner: 'John Doe', tweet: this.state.value, comments: [], likes: 0, retweets: 0, id: id};
+
+        this.props.addTweet(tweet);
     }
 
     render() {
@@ -28,4 +33,11 @@ class Input extends Component {
     }
 }
 
-export default Input;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTweet: (tweet) => { dispatch({type: 'ADD_TWEET', tweet}) }
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(Input);

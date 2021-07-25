@@ -4,8 +4,6 @@ import './css/Header.css';
 
 class Header extends Component {
     render() {
-    let { tweets } = this.props;
-    console.log(this.props);
         return (
             <div className="header">
                     <p>Twitter</p>

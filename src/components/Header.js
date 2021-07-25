@@ -1,12 +1,17 @@
-import { Component } from "react";
+import { Component, useCallback } from "react";
 import { connect } from 'react-redux';
 import './css/Header.css';
+import { AiOutlineTwitter, AiOutlineMenu } from 'react-icons/ai';
 
 class Header extends Component {
     render() {
+        const { user } = this.props;
+
         return (
             <div className="header">
-                    <p>Twitter</p>
+                    <AiOutlineMenu size='30' />
+                    <AiOutlineTwitter size='30' />
+                    <p>Welcome back {user.name}</p>
             </div>
         )
     }
@@ -14,7 +19,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tweets: state.tweets
+        user: state.user
     }
 } 
 

@@ -7,16 +7,39 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
+    let newList = [...state.tweets];
+
     switch (action.type) {
         case 'ADD_TWEET':
-            let newList = [...state.tweets];
             newList.unshift(action.tweet);
 
             return {
                 ...state,
                 tweets: newList
             }
-            
+
+        case 'LIKE_TWEET':
+            let index = state.tweets.findIndex(tweet => tweet.id === action.id);
+            newList = [...state.tweets];
+
+            newList[index].likes += 1;
+
+            return {
+                ...state,
+                tweets: newList
+            }
+
+        case 'RT_TWEET':
+            let i = state.tweets.findIndex(tweet => tweet.id === action.id);
+            newList = [...state.tweets];
+    
+            newList[i].retweets += 1;
+    
+            return {
+                ...state,
+                tweets: newList
+            }    
+
         default:
             return state;    
     }

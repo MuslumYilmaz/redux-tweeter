@@ -5,12 +5,12 @@ import { FcLike } from 'react-icons/fc';
 import { FaRetweet } from 'react-icons/fa';
 
 class Home extends Component {
-    like = () => {
-        console.log("liked!");
+    like = (id) => {
+        this.props.likeTweet(id);
     }
 
-    retweet = () => {
-        console.log("retweet!");
+    retweet = (id) => {
+        this.props.rtTweet(id);
     }
 
     render() {
@@ -24,7 +24,7 @@ class Home extends Component {
                         <div className="container">
                             <span>{tweet.owner}</span>
                             <p>{tweet.tweet}</p>
-                            <p><FcLike onClick={this.like} /> {tweet.likes} <FaRetweet onClick={this.retweet} /> {tweet.retweets}</p>
+                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets}</p>
                         </div>
                     </li>
                 )) }
@@ -39,6 +39,13 @@ const mapStateToProps = (state) => {
     return {
         tweets: state.tweets
     }
-} 
+}
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        likeTweet: (id) => { dispatch({type: 'LIKE_TWEET', id}) },
+        rtTweet: (id) => { dispatch({type: 'RT_TWEET', id}) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

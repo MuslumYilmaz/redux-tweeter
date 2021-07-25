@@ -21,6 +21,7 @@ class Input extends Component {
         let tweet = {owner: 'John Doe', tweet: this.state.value, comments: [], likes: 0, retweets: 0, id: id};
 
         this.props.addTweet(tweet);
+        this.setState({value: ''});
     }
 
     render() {

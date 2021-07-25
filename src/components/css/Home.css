@@ -1,8 +1,11 @@
 .container {
-    border: 2px solid black;
+    background-color: rgb(243, 239, 239);
     border-radius: 15px;
     width: 30rem;
     height: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 ul {
@@ -14,4 +17,11 @@ ul {
 
 li {
     list-style: none;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px;
 }

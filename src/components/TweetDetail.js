@@ -23,6 +23,7 @@ class TweetDetail extends Component {
         let obj = {id, value};
 
         this.props.addComment(obj);
+        this.setState({value: ''});
     }
 
     render() {
@@ -57,7 +58,7 @@ class TweetDetail extends Component {
                 </div>
                 <div>
                 <form onSubmit={(event, id) => this.handleSubmit(event, tweet.id)}>
-                    <textarea type="text" placeholder="Add a comment" value={this.state.value} onChange={this.handleChange} />
+                    <textarea type="text" placeholder="Tweet your reply" value={this.state.value} onChange={this.handleChange} />
                     <input className="tweet-btn" type="submit" value="Tweet" />
                 </form>
                 </div>

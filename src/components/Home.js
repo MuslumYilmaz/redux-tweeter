@@ -29,7 +29,11 @@ class Home extends Component {
                         <div className="container">
                             <span>{tweet.owner}</span>
                             <p>{tweet.tweet}</p>
-                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes} <FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets} <Link to="tweet-detail"><FaRegComment onClick={() => this.getTweetDetail(tweet.id)} /></Link></p>
+                            <div className="btns">
+                            <p><FcLike onClick={() => this.like(tweet.id)} /> {tweet.likes}</p>
+                            <p><FaRetweet onClick={() => this.retweet(tweet.id)} /> {tweet.retweets}</p>
+                            <Link to="tweet-detail"><FaRegComment onClick={() => this.getTweetDetail(tweet.id)} /></Link>
+                            </div>
                         </div>
                     </li>
                 )) }
